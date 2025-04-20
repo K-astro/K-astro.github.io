@@ -3,6 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Astro | Astrophysicist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0a0a0a;
+            --paper: #fafafa;
+            --accent: #2563eb;
+            --highlight: #7c3aed;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --ink: #fafafa;
+                --paper: #0a0a0a;
+                --accent: #60a5fa;
+                --highlight: #a78bfa;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--paper);
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
+        }
+
+        .subtitle {
+            color: var(--highlight);
+            font-size: 1.1rem;
+        }
+
+        nav {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .publication {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>K. Astro</h1>
+            <div class="subtitle">PhD Candidate in Astrophysics</div>
+            <nav>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section id="research">
+            <h2>Research Focus</h2>
+            <p>Investigating the formation and evolution of compact stellar systems in galaxy clusters. My work combines numerical simulations with multi-wavelength observations to understand...</p>
+        </section>
+
+        <section id="publications">
+            <h2>Recent Publications</h2>
+            <div class="publication">
+                <h3>Dynamical Modeling of Ultra-Compact Dwarfs</h3>
+                <p>Astrophysical Journal, 2024</p>
+                <p>DOI: 10.xxxx/xxxxxx</p>
+            </div>
+            <!-- Add more publications -->
+        </section>
+
+        <section id="about">
+            <h2>Academic Profile</h2>
+            <p>Currently pursuing doctoral studies at [University Name], working under the supervision of Prof. [Name]. My research focuses on...</p>
+        </section>
+
+        <footer>
+            <p>Connect: 
+                <a href="mailto:your.email@institute.edu" style="color: var(--accent)">Email</a> ⋅ 
+                <a href="#" style="color: var(--accent)">GitHub</a> ⋅ 
+                <a href="#" style="color: var(--accent)">arXiv</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kastro ✮ ᴗ ✮</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
